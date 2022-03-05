@@ -4,7 +4,7 @@
 		if ($_SERVER['REQUEST_METHOD']=='POST') {
 			$noncecheck = sanitize_key($_POST["walktheweb_nonce"]);
 			if ($nonce == $noncecheck && !empty($noncecheck)) {
-
+				
 			}
 		}
 		$z3dcommunities = $WalkTheWeb->functions->getCommunities();
@@ -32,6 +32,7 @@
 			<input type="submit" id="walktheweb_submit" name="walktheweb_submit" value="Submit" class="walktheweb_hide" />
 			<input type="hidden" id="walktheweb_bval" name="walktheweb_bval" value="" />
 			<input type="hidden" id="walktheweb_nonce" name="walktheweb_nonce" value="<?php echo $nonce; ?>" />
+			<br /><br /><div class="walktheweb_button" onclick="document.getElementById('walktheweb_bval').value='syncwebsites';document.getElementById('walktheweb_submit').click();">Sync with WalkTheWeb</div>
 		</form>
 	</div>
 <?php

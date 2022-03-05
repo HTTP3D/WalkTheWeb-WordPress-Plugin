@@ -1254,7 +1254,7 @@ function WalkTheWeb() {
 			walktheweb.serror("walktheweb_main.js-createIt=" + ex.message);
 		}
 	}
-	
+
 	this.waitingTimer = null;
 	this.waiting = false;
 	

@@ -13,7 +13,10 @@
 	<div class="wrap">
 		<h2><?php _e( '3D Hosting', 'walktheweb' ); ?> 
 			<div class="walktheweb_button" onclick="window.location.href='admin.php?page=walktheweb_add3dhost';">Add 3D Host</div></h2><hr />
-		3D Hosts are Web Servers running <span style="color:blue">WalkTheWeb<sup>®</sup></span> 3D Internet - FREE Open-Source Metaverse Software - Installs in just seconds and works on any server that is capable of running WordPress. (PHP, JavaScript, and MySQL). <br /><br /><a href="https://www.youtube.com/c/WalkTheWeb3d" target="_blank">Watch <b>WalkTheWeb Metaverse</b> Videos on YouTube</a><br /><br /><a href='https://github.com/http3d/walktheweb' target='_blank'>Download <b>WalkTheWeb Metaverse</b> here</a>.<hr />
+		3D Hosts are Web Servers running <span style="color:blue">WalkTheWeb<sup>®</sup></span> 3D Internet - FREE Open-Source Metaverse Software - Installs in just seconds and works on any server that is capable of running WordPress. (PHP, JavaScript, and MySQL). <br /><br />
+		<a href='https://github.com/http3d/walktheweb' target='_blank'>Download <b>WalkTheWeb Metaverse</b> here</a>.<br /><br />
+		<a href="https://www.youtube.com/c/WalkTheWeb3d" target="_blank">Watch <b>WalkTheWeb Metaverse</b> Videos on YouTube</a>.
+		<hr />
 		<form id="walktheweb_form" method="post" action="admin.php?page=walktheweb_3dhosts">
 			<div class="walktheweb_headerrow">
 				<div class="walktheweb_col3"><strong><?php _e( '3D Host URL', 'walktheweb' ); ?></strong></div>

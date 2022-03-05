@@ -412,6 +412,47 @@ class WTW_Functions {
 				$table_prefix = $wpdb->prefix ? $wpdb->prefix : 'wp_';
 				$i = 0;
 				$user = wp_get_current_user();
+				$zbval = sanitize_key($_POST["walktheweb_bval"]);
+				$walktheweb_storeurl = get_site_url();
+				if ($zbval == 'syncwebsites') {
+					/* call WalkTheWeb Server(s) to sync 3D Websites list */
+					$zresults = $wpdb->get_results("
+						select h1.* FROM ".WTW_PREFIX."3dhosts h1
+						where h1.deleted=0;");
+					foreach ($zresults as $zrow) {
+						$zhosturl = $zrow->hosturl;
+						$zwtwkey = $zrow->wtwkey;
+						$zwtwsecret = $zrow->wtwsecret;
+						
+						$zpostdata = stream_context_create(array('http' =>
+							array(
+								'method'  => 'POST',
+								'header'  => 'Content-Type: application/x-www-form-urlencoded',
+								'content' => http_build_query(
+									array(
+										'storeurl' => base64_encode($walktheweb_storeurl),
+										'wtwkey' => $zwtwkey,
+										'wtwsecret' => $zwtwsecret,
+										'function' => 'syncwebsites'
+									)
+								)
+							)
+						));
+							
+						$zresults2 = file_get_contents($zhosturl.'/connect/authenticate.php', false, $zpostdata);			
+						if (!empty($zresults2) && isset($zresults2)) {
+							$zresults2 = json_decode($zresults2);
+						}
+						
+						
+						
+						
+						
+						
+						
+					}
+				}
+				
 				$zresults = $wpdb->get_results("
 					select w1.*, k1.consumer_key FROM ".WTW_PREFIX."3dwebsites w1
 						left join ".$table_prefix."woocommerce_api_keys k1
