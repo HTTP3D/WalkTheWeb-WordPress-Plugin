@@ -1,17 +1,7 @@
 <?php
-/*
-	header('Access-Control-Allow-Origin: *');
-	header('Content-type: application/json');
-	header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-	header('Access-Control-Request-Headers: Content-Type');
-	header('Set-Cookie: cross-site-cookie=name; SameSite=Lax;');
-*/
 	global $WalkTheWeb;
 	try {
 		if (!defined('ABSPATH')) exit; // Exit if accessed directly
-
-
-
 		$blogid = get_current_blog_id();
 		$zfunction = "";
 		$zhostid = "";

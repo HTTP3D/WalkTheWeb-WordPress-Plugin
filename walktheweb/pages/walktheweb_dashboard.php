@@ -11,7 +11,7 @@
 ?>
 			
 	<div class="wrap">
-		<h2><span style="color:blue">WalkTheWeb<sup>®</sup></span> <?php _e( 'Dashboard', 'walktheweb' ); ?></h2><hr />			
+		<h2><img src="<?php echo WTW_PLUGIN_URL; ?>/assets/images/menuwtw.png" class="walktheweb_logo" \><span style="color:blue">WalkTheWeb<sup>®</sup></span> <?php _e( 'Dashboard', 'walktheweb' ); ?></h2><hr />			
 		<div id="walktheweb_newwebsitedev" class="walktheweb_dashboardpage">
 			<h2 class="walktheweb_dashboardheading"><?php _e('Your New 3D Shopping Website', 'walktheweb' ); ?></h2>
 			<div class="walktheweb_bold"><?php _e('Welcome to', 'walktheweb' ); ?> WalkTheWeb 3D Internet!<br /><br /></div><div style="clear:both;"></div>
@@ -37,7 +37,7 @@
 		} else {
 			echo "<script>var walktheweb_wookeys = ".json_encode($walktheweb_wookeys).";</script>";?>
 	<div class="wrap">
-	<h2><span style="color:blue">WalkTheWeb<sup>®</sup></span> <?php _e( 'Dashboard', 'walktheweb' ); ?></h2><hr />
+	<h2><img src="<?php echo WTW_PLUGIN_URL; ?>/assets/images/menuwtw.png" class="walktheweb_logo" \><span style="color:blue">WalkTheWeb<sup>®</sup></span> <?php _e( 'Dashboard', 'walktheweb' ); ?></h2><hr />
 <?php 		if (esc_attr($walktheweb_wooactive) == '0') { ?>
 		<div id="walktheweb_requireswoocommerce" class="walktheweb_woocommercerequired">
 			<div><?php _e( 'This plugin will allow you to create 3D Game Websites, but 3D Shopping Websites require you to install and activate the plugin for', 'walktheweb' ); ?> <a href="<?php echo esc_url(site_url()); ?>/wp-admin/plugin-install.php?s=woocommerce&tab=search&type=term">WooCommerce</a>.<br /></div>

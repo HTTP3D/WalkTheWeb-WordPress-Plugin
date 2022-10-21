@@ -89,7 +89,7 @@ function WalkTheWeb() {
 		},
 		{
 			'imagefile':'demo15.png',
-			'imagetext':'As a Metaverse, 3D Virtual Reality (VR) is fully supported but not required.',
+			'imagetext':'As a Metaverse, 3D Virtual Reality (VR) is supported but not required.',
 			'textcolor':'yellow',
 			'timer':8000
 		},
@@ -1220,8 +1220,8 @@ function WalkTheWeb() {
 				'websiteurl':btoa(zwebsiteurl),
 				'buildingid':btoa(zbuildingid),
 				'communityid':btoa(zcommunityid),
-				'usertoken':btoa(zusertoken),
-				'wtwusertoken':btoa(zwtwusertoken),
+				'usertoken':zusertoken,
+				'wtwusertoken':zwtwusertoken,
 				'wtwemail':btoa(zwtwemail),
 				'userid':btoa(zuserid),
 				'hosturl':btoa(zhosturl),
@@ -1254,7 +1254,7 @@ function WalkTheWeb() {
 			walktheweb.serror("walktheweb_main.js-createIt=" + ex.message);
 		}
 	}
-
+	
 	this.waitingTimer = null;
 	this.waiting = false;
 	
@@ -1425,7 +1425,7 @@ function WalkTheWeb() {
 				}
 			}
 		} catch (ex) {
-			walktheweb.serror("walktheweb_main.js-hostRequest=" + ex.message);
+			walktheweb.serror("walktheweb_main.js-checkHosts=" + ex.message);
 		}
 	}
 
@@ -1439,12 +1439,14 @@ function WalkTheWeb() {
 				if (document.getElementById('walktheweb_dashboardboxhome') != null) {
 					document.getElementById('walktheweb_dashboardboxhome').style = "background:url('" + walktheweb.imagepath + walktheweb.imagearray[zimageindex].imagefile + "');background-size: cover, auto; background-position: center center;background-color:#000000;";
 				}
-				document.getElementById('walktheweb_dashboardboxtext').style.visibility = 'hidden';
-				if (walktheweb.imagearray[zimageindex].imagetext != '') {
-					if (document.getElementById('walktheweb_dashboardboxtext') != null) {
-						document.getElementById('walktheweb_dashboardboxtext').innerHTML = walktheweb.imagearray[zimageindex].imagetext;
-						document.getElementById('walktheweb_dashboardboxtext').style.visibility = 'visible';
-						document.getElementById('walktheweb_dashboardboxtext').className = 'walktheweb_dashboardboxtext';
+				if (document.getElementById('walktheweb_dashboardboxtext') != null) {
+					document.getElementById('walktheweb_dashboardboxtext').style.visibility = 'hidden';
+					if (walktheweb.imagearray[zimageindex].imagetext != '') {
+						if (document.getElementById('walktheweb_dashboardboxtext') != null) {
+							document.getElementById('walktheweb_dashboardboxtext').innerHTML = walktheweb.imagearray[zimageindex].imagetext;
+							document.getElementById('walktheweb_dashboardboxtext').style.visibility = 'visible';
+							document.getElementById('walktheweb_dashboardboxtext').className = 'walktheweb_dashboardboxtext';
+						}
 					}
 				}
 				walktheweb.adtimer = setTimeout(function() {
@@ -1463,7 +1465,7 @@ function WalkTheWeb() {
 				}
 			}
 		} catch (ex) {
-			walktheweb.serror("walktheweb_main.js-hostRequest=" + ex.message);
+			walktheweb.serror("walktheweb_main.js-adRotate=" + ex.message);
 		}
 	}	
 }

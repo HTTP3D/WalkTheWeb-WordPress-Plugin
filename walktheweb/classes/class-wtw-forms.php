@@ -74,9 +74,14 @@ class WTW_Forms {
 				add_submenu_page(null, __('Add 3D Host', 'walktheweb'), __('Add 3D Host', 'walktheweb'), 'manage_options', 'walktheweb_add3dhost', array($this,'walktheweb_add3dhost_page'), 6);
 				add_submenu_page(null, __('WalkTheWeb 3D Host', 'walktheweb'), __('WalkTheWeb 3D Host', 'walktheweb'), 'manage_options', 'walktheweb_wtw3dhost', array($this,'walktheweb_wtw3dhost_page'), 7);
 
-				add_submenu_page('walktheweb_menu', __('Marketplace', 'walktheweb'), __('Marketplace', 'walktheweb'), 'manage_options', 'walktheweb_marketplace', array($this,'walktheweb_marketplace_page'), 9);
+				add_submenu_page('walktheweb_menu', __('Marketplace', 'walktheweb'), __('Marketplace Downloads', 'walktheweb'), 'manage_options', 'walktheweb_marketplace', array($this,'walktheweb_downloadcommunity_page'), 9);
 
-				add_submenu_page('walktheweb_menu', __('About', 'walktheweb').' WalkTheWeb', __('About', 'walktheweb').' WalkTheWeb', 'manage_options', 'walktheweb_about', array($this,'walktheweb_about_page'), 10);
+				add_submenu_page('walktheweb_marketplace', __('3D Communities', 'walktheweb'), __('Download 3D Communities', 'walktheweb'), 'manage_options', 'walktheweb_downloadcommunity', array($this,'walktheweb_downloadcommunity_page'), 10);
+				add_submenu_page('walktheweb_marketplace', __('3D Buildings', 'walktheweb'), __('Download 3D Buildings', 'walktheweb'), 'manage_options', 'walktheweb_downloadbuilding', array($this,'walktheweb_downloadbuilding_page'), 11);
+				add_submenu_page('walktheweb_marketplace', __('3D Things', 'walktheweb'), __('Download 3D Things', 'walktheweb'), 'manage_options', 'walktheweb_downloadthing', array($this,'walktheweb_downloadthing_page'), 12);
+				add_submenu_page('walktheweb_marketplace', __('3D Avatars', 'walktheweb'), __('Download 3D Avatars', 'walktheweb'), 'manage_options', 'walktheweb_downloadavatar', array($this,'walktheweb_downloadavatar_page'), 13);
+
+				add_submenu_page('walktheweb_menu', __('About', 'walktheweb').' WalkTheWeb', __('About', 'walktheweb').' WalkTheWeb', 'manage_options', 'walktheweb_about', array($this,'walktheweb_about_page'), 14);
 				remove_submenu_page('walktheweb_menu','walktheweb_menu');
 			}
 		} catch (Exception $e) {
@@ -103,12 +108,12 @@ class WTW_Forms {
 				$walktheweb_serverip = gethostbyname($walktheweb_domainname);
 				$walktheweb_domainparts = explode(".",$walktheweb_domainname);
 				$walktheweb_domainroot = "yoursite";
-				$walktheweb_wookey    = 'ck_e4f9d75c376f6805f7a059e91a4d8636d6f1deba'; //'ck_' . wc_rand_hash();
-				$walktheweb_woosecret = 'cs_b230d178ee154aa8985f63b3844c4a36edf8a50c'; //'cs_' . wc_rand_hash();
+				$walktheweb_wookey    = 'ck_' . wc_rand_hash();
+				$walktheweb_woosecret = 'cs_' . wc_rand_hash();
 				
 				$walktheweb_carturl = $walktheweb_storeurl."/cart/";
 				$walktheweb_producturl = $walktheweb_storeurl."/product/";
-				$walktheweb_apiurl = $walktheweb_storeurl."/wp-json/wc/v2/";
+				$walktheweb_apiurl = $walktheweb_storeurl."/wp-json/wc/v3/";
 				
 				if (count($walktheweb_domainparts) > 1) {
 					$walktheweb_domainroot = $walktheweb_domainparts[count($walktheweb_domainparts)-2];
@@ -347,6 +352,94 @@ class WTW_Forms {
 			}
 		} catch (Exception $e) {
 			$WalkTheWeb->serror("wtw-classes-class-wtw-forms.php-walktheweb_marketplace_page = ".$e->getMessage());
+		}
+	}
+
+	public function walktheweb_downloadcommunity_page() {
+		global $WalkTheWeb;
+		try {
+			if (!current_user_can('manage_options')) {
+				wp_die(__("You do not have access to this page"));
+			} else {
+				$walktheweb_wooactive = '0';
+				if (is_plugin_active('woocommerce/woocommerce.php')) {
+					$walktheweb_wooactive = '1';
+				}
+				$zsiteurl = site_url();
+				$blogid = get_current_blog_id();
+				$user = wp_get_current_user();
+				$walktheweb_wpinstanceid = $this->getInstanceID();
+				$nonce = wp_create_nonce('walktheweb_update_'.$blogid);
+				require_once(WTW_ABSPATH.'/pages/walktheweb_downloadcommunity.php');
+			}
+		} catch (Exception $e) {
+			$WalkTheWeb->serror("wtw-classes-class-wtw-forms.php-walktheweb_downloadcommunity_page = ".$e->getMessage());
+		}
+	}
+
+	public function walktheweb_downloadbuilding_page() {
+		global $WalkTheWeb;
+		try {
+			if (!current_user_can('manage_options')) {
+				wp_die(__("You do not have access to this page"));
+			} else {
+				$walktheweb_wooactive = '0';
+				if (is_plugin_active('woocommerce/woocommerce.php')) {
+					$walktheweb_wooactive = '1';
+				}
+				$zsiteurl = site_url();
+				$blogid = get_current_blog_id();
+				$user = wp_get_current_user();
+				$walktheweb_wpinstanceid = $this->getInstanceID();
+				$nonce = wp_create_nonce('walktheweb_update_'.$blogid);
+				require_once(WTW_ABSPATH.'/pages/walktheweb_downloadbuilding.php');
+			}
+		} catch (Exception $e) {
+			$WalkTheWeb->serror("wtw-classes-class-wtw-forms.php-walktheweb_downloadbuilding_page = ".$e->getMessage());
+		}
+	}
+
+	public function walktheweb_downloadthing_page() {
+		global $WalkTheWeb;
+		try {
+			if (!current_user_can('manage_options')) {
+				wp_die(__("You do not have access to this page"));
+			} else {
+				$walktheweb_wooactive = '0';
+				if (is_plugin_active('woocommerce/woocommerce.php')) {
+					$walktheweb_wooactive = '1';
+				}
+				$zsiteurl = site_url();
+				$blogid = get_current_blog_id();
+				$user = wp_get_current_user();
+				$walktheweb_wpinstanceid = $this->getInstanceID();
+				$nonce = wp_create_nonce('walktheweb_update_'.$blogid);
+				require_once(WTW_ABSPATH.'/pages/walktheweb_downloadthing.php');
+			}
+		} catch (Exception $e) {
+			$WalkTheWeb->serror("wtw-classes-class-wtw-forms.php-walktheweb_downloadthing_page = ".$e->getMessage());
+		}
+	}
+
+	public function walktheweb_downloadavatar_page() {
+		global $WalkTheWeb;
+		try {
+			if (!current_user_can('manage_options')) {
+				wp_die(__("You do not have access to this page"));
+			} else {
+				$walktheweb_wooactive = '0';
+				if (is_plugin_active('woocommerce/woocommerce.php')) {
+					$walktheweb_wooactive = '1';
+				}
+				$zsiteurl = site_url();
+				$blogid = get_current_blog_id();
+				$user = wp_get_current_user();
+				$walktheweb_wpinstanceid = $this->getInstanceID();
+				$nonce = wp_create_nonce('walktheweb_update_'.$blogid);
+				require_once(WTW_ABSPATH.'/pages/walktheweb_downloadavatar.php');
+			}
+		} catch (Exception $e) {
+			$WalkTheWeb->serror("wtw-classes-class-wtw-forms.php-walktheweb_downloadavatar_page = ".$e->getMessage());
 		}
 	}
 

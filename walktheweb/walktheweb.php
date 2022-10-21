@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name: WalkTheWeb Metaverse
+Plugin Name: WalkTheWeb
 Plugin URI: https://wordpress.org/plugins/walktheweb/
-Description: WalkTheWeb Metaverse is a 3D Store plugin that puts your WooCommerce online store into a 3D Game environment in less than 5 minutes to give you more more Internet traffic and more sales!
+Description: WalkTheWeb is your opening into the 3D Internet Metaverse/Multiverse. WalkTheWeb allows you to put 3D Shopping Stores, using your existing WooCommerce online store, into a 3D Game environment in less than 5 minutes to give you more more Internet traffic and more sales! Join the 3D Internet now!
 Version: 2.0.0
 Author: WalkTheWeb
 Author URI: https://www.walktheweb.com/
 Developer: Dr. Aaron Dishno, HTTP3D Inc.
 Developer URI: https://www.walktheweb.com/wiki/dr-aaron-dishno/
-WC requires at least: 3.2
-WC tested up to: 6.1.1
+WC requires at least: 3.3
+WC tested up to: 7.0
 Copyright: © 2013-2022 WalkTheWeb.
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html

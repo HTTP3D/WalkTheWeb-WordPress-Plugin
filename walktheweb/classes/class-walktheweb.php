@@ -143,7 +143,6 @@ final class WalkTheWeb {
 		add_filter('query_vars', array( $this, 'walktheweb_confirmapi_query_vars'));
 		add_filter('query_vars', array( $this, 'walktheweb_wtwconnection_query_vars'));
 		add_action('parse_request', array( $this, 'walktheweb_parse_request'));
-//		add_action('rest_api_init', array( $this, 'walktheweb_api_endpoint'));
 	}
 
 	/**
@@ -164,8 +163,8 @@ final class WalkTheWeb {
 			}
 			if ($shownmessage == false) { ?>
 				<div class="updated notice is-dismissible">
-					<p><?php _e('Thank you for using the <strong>WalkTheWeb 3D Websites</strong> plugin!', 'walktheweb'); ?><br />
-					<a href="<?php echo $this->storeurl; ?>/wp-admin/admin.php?page=walktheweb_settings"><?php _e('Navigate to <strong>WalkTheWeb</strong> in your admin menu or click here to get started.', 'walktheweb'); ?></a>.</p>
+					<p><?php _e('Thank you for using the <strong>WalkTheWeb 3D Internet</strong> plugin!', 'walktheweb'); ?><br />
+					<a href="<?php echo $this->storeurl; ?>/wp-admin/admin.php?page=walktheweb_dashboard"><?php _e('Navigate to <strong>WalkTheWeb</strong> in your admin menu or click here to get started.', 'walktheweb'); ?></a>.</p>
 				</div>
 <?php		}
 			if (is_multisite()) {
@@ -183,6 +182,7 @@ final class WalkTheWeb {
 	 */
 	public function walktheweb_scripts($hook) {
 		wp_enqueue_script( 'walktheweb_main_js', WTW_PLUGIN_URL.'/assets/scripts/walktheweb_main.js', array('jquery'), $this->jsversion, false);
+		wp_enqueue_script( 'walktheweb_downloads_js', WTW_PLUGIN_URL.'/assets/scripts/walktheweb_downloads.js', array('jquery'), $this->jsversion, false);
 		wp_enqueue_style('walktheweb_style_css', WTW_PLUGIN_URL.'/assets/styles/walktheweb_styles.css', array(), $this->cssversion, 'all');
 	}	
 	
@@ -458,20 +458,5 @@ final class WalkTheWeb {
 		}
 		return;
 	}	
-/*	
-	public function walktheweb_api_endpoint() {
-		register_rest_route('walktheweb/apikeys', '/?walktheweb=apikeys.php', 
-			array(
-				'methods' => 'POST',
-				'callback' => array( $this, 'walktheweb_api_apikeys'),
-			)
-		);
-	}
-	
-	public function walktheweb_api_apikeys() {
-		require_once(WTW_ABSPATH.'/api/apikeys.php');
-		exit();
-	}
-*/
 }
 ?>

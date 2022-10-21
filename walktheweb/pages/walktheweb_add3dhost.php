@@ -24,8 +24,8 @@
 		}
 ?>
 	<div class="wrap">
-	<h2><?php _e( 'Add 3D Host', 'walktheweb' ); ?></h2><hr />
-	3D Hosts are Web Servers running <span style="color:blue">WalkTheWeb<sup>®</sup></span> 3D Internet - FREE Open-Source 3D CMS Hosting Software - <a href='https://github.com/http3d/walktheweb' target='_blank'>Download Here</a>.<hr />
+	<h2><img src="<?php echo WTW_PLUGIN_URL; ?>/assets/images/menuwtw.png" class="walktheweb_logo" \><?php _e( 'Add 3D Host', 'walktheweb' ); ?></h2><hr />
+	<?php _e( '3D Hosts are Web Servers running <span style="color:blue">WalkTheWeb<sup>®</sup></span> 3D Internet - FREE Open-Source 3D CMS Hosting Software - <a href="https://github.com/http3d/walktheweb" target="_blank">Download Here</a>.', 'walktheweb' ); ?><hr />
 	<form id="walktheweb_form" method="post" action="admin.php?page=walktheweb_add3dhost">
 		<h2>Send Connection Request to 3D Host</h2>
 		<div class="walktheweb_label">3D Host URL</div>

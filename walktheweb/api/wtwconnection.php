@@ -75,19 +75,9 @@
 		}
 		
 		
-		$storename = "Store Name";
+		$storename = "My 3D Store";
 		$siteurlpart = "";
 		$siteurl = "";
-	/*	if (is_multisite()) {
-			$storename = esc_attr(get_blog_option($blogid, 'walktheweb_storename', esc_attr(get_bloginfo('name'))));
-			$siteurlpart = esc_attr(get_blog_option($blogid, 'walktheweb_siteurlpart', ''));
-			$siteurl = esc_attr(get_blog_option($blogid, 'walktheweb_siteurl', esc_url('https://3d.walktheweb.com')));
-		} else {
-			$storename = esc_attr(get_option('walktheweb_storename', esc_attr(get_bloginfo('name'))));
-			$siteurlpart = esc_attr(get_option('walktheweb_siteurlpart', ''));
-			$siteurl = esc_attr(get_option('walktheweb_siteurl', esc_url('https://3d.walktheweb.com')));
-		}
-	*/
 		$i = 0;
 		$response = array();
 		$response[$i] = array(

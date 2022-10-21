@@ -18,7 +18,7 @@
 		$ddlwookeys = $WalkTheWeb->functions->getDDLWooKeyDescriptions();
 ?>
 	<div class="wrap">
-	<h2><?php _e( 'WalkTheWeb 3D Host', 'walktheweb' ); ?></h2><hr />
+	<h2><img src="<?php echo WTW_PLUGIN_URL; ?>/assets/images/menuwtw.png" class="walktheweb_logo" \><?php _e( 'WalkTheWeb 3D Host', 'walktheweb' ); ?></h2><hr />
 	Use the Free 3D Hosting by Creating a <span style="color:blue">WalkTheWeb<sup>®</sup></span> Account (this page) OR you can host your own <span style="color:blue">WalkTheWeb<sup>®</sup></span> 3D Internet - FREE Open-Source 3D CMS Hosting Software - <a href='https://github.com/http3d/walktheweb' target='_blank'>Download Here</a>.<hr />
 	<form id="walktheweb_form" method="post" action="admin.php?page=walktheweb_wtw3dhost">
 		<div id="walktheweb_wtwusernew" style="display:block;visibility:visible;">

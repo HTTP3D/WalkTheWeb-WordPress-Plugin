@@ -23,7 +23,7 @@
 		}
 		header('Access-Control-Allow-Origin: *');
 		header('Content-type: application/json');
-		$url = $storeurl."/wp-json/wc/v2/products/categories/?per_page=1&orderby=slug&consumer_key=".$key."&consumer_secret=".$password;
+		$url = $storeurl."/wp-json/wc/v3/products/categories/?per_page=1&orderby=slug&consumer_key=".$key."&consumer_secret=".$password;
 		$result = @file_get_contents($url);
 		$result = json_decode($result);
 		echo json_encode($result);
